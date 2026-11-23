@@ -1,0 +1,218 @@
+[
+  {
+    "creation_time": "2026-11-23T03:35:08.971Z",
+    "creator_ref": 1,
+    "creator_type": "local",
+    "description": "Read-only account for the Grafana data source (dev stack)",
+    "disable": false,
+    "duration": -1,
+    "editable": true,
+    "expires_at": -1,
+    "id": 6,
+    "level": "system",
+    "name": "robot$grafana",
+    "permissions": [
+      {
+        "access": [
+          {
+            "action": "list",
+            "resource": "audit-log"
+          },
+          {
+            "action": "read",
+            "resource": "catalog"
+          },
+          {
+            "action": "list",
+            "resource": "garbage-collection"
+          },
+          {
+            "action": "read",
+            "resource": "garbage-collection"
+          },
+          {
+            "action": "list",
+            "resource": "jobservice-monitor"
+          },
+          {
+            "action": "list",
+            "resource": "quota"
+          },
+          {
+            "action": "read",
+            "resource": "quota"
+          },
+          {
+            "action": "list",
+            "resource": "registry"
+          },
+          {
+            "action": "read",
+            "resource": "registry"
+          },
+          {
+            "action": "list",
+            "resource": "replication"
+          },
+          {
+            "action": "read",
+            "resource": "replication"
+          },
+          {
+            "action": "list",
+            "resource": "replication-policy"
+          },
+          {
+            "action": "read",
+            "resource": "replication-policy"
+          },
+          {
+            "action": "list",
+            "resource": "robot"
+          },
+          {
+            "action": "read",
+            "resource": "robot"
+          },
+          {
+            "action": "read",
+            "resource": "scan-all"
+          },
+          {
+            "action": "list",
+            "resource": "scanner"
+          },
+          {
+            "action": "read",
+            "resource": "scanner"
+          },
+          {
+            "action": "list",
+            "resource": "security-hub"
+          },
+          {
+            "action": "read",
+            "resource": "security-hub"
+          },
+          {
+            "action": "read",
+            "resource": "system-volumes"
+          },
+          {
+            "action": "list",
+            "resource": "project"
+          }
+        ],
+        "kind": "system",
+        "namespace": "/"
+      },
+      {
+        "access": [
+          {
+            "action": "list",
+            "resource": "accessory"
+          },
+          {
+            "action": "read",
+            "resource": "artifact"
+          },
+          {
+            "action": "read",
+            "resource": "artifact-addition"
+          },
+          {
+            "action": "list",
+            "resource": "log"
+          },
+          {
+            "action": "list",
+            "resource": "metadata"
+          },
+          {
+            "action": "read",
+            "resource": "metadata"
+          },
+          {
+            "action": "read",
+            "resource": "quota"
+          },
+          {
+            "action": "read",
+            "resource": "repository"
+          },
+          {
+            "action": "read",
+            "resource": "scan"
+          },
+          {
+            "action": "read",
+            "resource": "project"
+          },
+          {
+            "action": "list",
+            "resource": "repository"
+          },
+          {
+            "action": "list",
+            "resource": "artifact"
+          },
+          {
+            "action": "list",
+            "resource": "tag"
+          }
+        ],
+        "kind": "project",
+        "namespace": "*"
+      }
+    ],
+    "update_time": "2026-11-23T03:35:08.991Z"
+  },
+  {
+    "creation_time": "2026-11-23T03:35:09.657Z",
+    "creator_ref": 1,
+    "creator_type": "local",
+    "description": "Read-only account for the Grafana data source (dev stack)",
+    "disable": false,
+    "duration": -1,
+    "editable": true,
+    "expires_at": -1,
+    "id": 7,
+    "level": "system",
+    "name": "robot$grafana-limited",
+    "permissions": [
+      {
+        "access": [
+          {
+            "action": "list",
+            "resource": "project"
+          }
+        ],
+        "kind": "system",
+        "namespace": "/"
+      },
+      {
+        "access": [
+          {
+            "action": "read",
+            "resource": "project"
+          },
+          {
+            "action": "list",
+            "resource": "repository"
+          },
+          {
+            "action": "list",
+            "resource": "artifact"
+          },
+          {
+            "action": "list",
+            "resource": "tag"
+          }
+        ],
+        "kind": "project",
+        "namespace": "*"
+      }
+    ],
+    "update_time": "2026-11-23T03:35:09.663Z"
+  }
+]

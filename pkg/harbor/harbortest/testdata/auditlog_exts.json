@@ -1,0 +1,82 @@
+[
+  {
+    "id": 32,
+    "op_time": "2026-11-23T03:35:09.662Z",
+    "operation": "create",
+    "operation_description": "create robot: robot$grafana-limited",
+    "operation_result": true,
+    "resource": "robot$grafana-limited",
+    "resource_type": "robot",
+    "username": "admin"
+  },
+  {
+    "id": 31,
+    "op_time": "2026-11-23T03:35:08.990Z",
+    "operation": "create",
+    "operation_description": "create robot: robot$grafana",
+    "operation_result": true,
+    "resource": "robot$grafana",
+    "resource_type": "robot",
+    "username": "admin"
+  },
+  {
+    "id": 30,
+    "op_time": "2026-11-23T03:34:16.080Z",
+    "operation": "create",
+    "operation_description": "push artifact: mirror/busybox@sha256:b7f3d86d6e84fc17718c48bcde1450807faa2d56704205c697b4bd5df7b9e29f",
+    "operation_result": true,
+    "resource": "mirror/busybox:1.36",
+    "resource_type": "artifact",
+    "username": "admin"
+  },
+  {
+    "id": 29,
+    "op_time": "2026-11-23T03:34:13.846Z",
+    "operation": "create",
+    "operation_description": "create project: mirror",
+    "operation_result": true,
+    "resource": "mirror",
+    "resource_type": "project",
+    "username": "admin"
+  },
+  {
+    "id": 28,
+    "op_time": "2026-11-23T03:34:11.494Z",
+    "operation": "delete",
+    "operation_description": "delete robot: robot$apps+wdWLouYf-Trivy-b9a35314-e6ee-11f1-9c13-360ec536e338",
+    "operation_result": true,
+    "resource": "robot$apps+wdWLouYf-Trivy-b9a35314-e6ee-11f1-9c13-360ec536e338",
+    "resource_type": "robot",
+    "username": "harbor-jobservice"
+  },
+  {
+    "id": 27,
+    "op_time": "2026-11-23T03:34:10.338Z",
+    "operation": "create",
+    "operation_description": "create tag: platform/alpine:stable",
+    "operation_result": true,
+    "resource": "platform/alpine:stable",
+    "resource_type": "tag",
+    "username": "admin"
+  },
+  {
+    "id": 26,
+    "op_time": "2026-11-23T03:34:08.875Z",
+    "operation": "pull",
+    "operation_description": "pull artifact: platform/alpine@sha256:c64c687cbea9300178b30c95835354e34c4e4febc4badfe27102879de0483b5e",
+    "operation_result": true,
+    "resource": "platform/alpine:3.20",
+    "resource_type": "artifact",
+    "username": "admin"
+  },
+  {
+    "id": 25,
+    "op_time": "2026-11-23T03:34:08.415Z",
+    "operation": "delete",
+    "operation_description": "delete robot: robot$apps+wdWLouYf-Trivy-bb7e6211-e6ee-11f1-9c13-360ec536e338",
+    "operation_result": true,
+    "resource": "robot$apps+wdWLouYf-Trivy-bb7e6211-e6ee-11f1-9c13-360ec536e338",
+    "resource_type": "robot",
+    "username": "harbor-jobservice"
+  }
+]

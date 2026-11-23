@@ -1,0 +1,118 @@
+apiVersion: 1
+
+# Example rules for the dev stack. The first two stay Normal on a healthy
+# Harbor; the third fires, because the sample images include old releases
+# with known critical vulnerabilities.
+groups:
+  - orgId: 1
+    name: harbor-examples
+    folder: Harbor
+    interval: 1m
+    rules:
+      - uid: harbor-component-unhealthy
+        title: Harbor component unhealthy
+        condition: C
+        for: 5m
+        noDataState: NoData
+        execErrState: Error
+        annotations:
+          summary: 'The Harbor component {{ $labels.component }} is not healthy.'
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: harbor-dev
+            model:
+              refId: A
+              queryType: health
+              value: status
+          - refId: B
+            datasourceUid: __expr__
+            model:
+              refId: B
+              type: reduce
+              expression: A
+              reducer: last
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: threshold
+              expression: B
+              conditions:
+                - evaluator:
+                    type: lt
+                    params: [1]
+
+      - uid: harbor-quota-almost-full
+        title: Project quota above 90%
+        condition: C
+        for: 5m
+        noDataState: NoData
+        execErrState: Error
+        annotations:
+          summary: 'The project {{ $labels.project }} uses {{ $values.B.Value }}% of its storage quota.'
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: harbor-dev
+            model:
+              refId: A
+              queryType: projects
+              value: quotaPercent
+          - refId: B
+            datasourceUid: __expr__
+            model:
+              refId: B
+              type: reduce
+              expression: A
+              reducer: last
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: threshold
+              expression: B
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [90]
+
+      - uid: harbor-critical-vulnerabilities
+        title: Critical vulnerabilities found
+        condition: C
+        for: 0s
+        noDataState: NoData
+        execErrState: Error
+        annotations:
+          summary: 'The scanned images have {{ $values.B.Value }} critical vulnerabilities.'
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: harbor-dev
+            model:
+              refId: A
+              queryType: securitySummary
+              measure: critical
+          - refId: B
+            datasourceUid: __expr__
+            model:
+              refId: B
+              type: reduce
+              expression: A
+              reducer: last
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: threshold
+              expression: B
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [0]

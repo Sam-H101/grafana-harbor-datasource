@@ -1,0 +1,16 @@
+{
+  "auth_mode": "db_auth",
+  "banner_message": "",
+  "current_time": "2026-11-23T03:38:32.586Z",
+  "external_url": "http://proxy:8080",
+  "harbor_version": "v2.15.5-8c17ef6e",
+  "has_ca_root": false,
+  "notification_enable": true,
+  "oidc_provider_name": "",
+  "primary_auth_mode": false,
+  "project_creation_restriction": "everyone",
+  "read_only": false,
+  "registry_storage_provider_name": "filesystem",
+  "registry_url": "proxy:8080",
+  "self_registration": false
+}

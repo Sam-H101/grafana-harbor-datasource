@@ -1,0 +1,15 @@
+[
+  {
+    "creation_time": "2026-11-23T03:34:39.294Z",
+    "id": 9,
+    "job_kind": "MANUAL",
+    "job_name": "GARBAGE_COLLECTION",
+    "job_parameters": "{\"delete_tag\":false,\"delete_untagged\":false,\"dry_run\":true,\"freed_space\":0,\"purged_blobs\":0,\"purged_manifests\":0,\"time_window\":2,\"workers\":1}",
+    "job_status": "Success",
+    "schedule": {
+      "next_scheduled_time": "0001-01-01T00:00:00.000Z",
+      "type": "Manual"
+    },
+    "update_time": "2026-11-23T03:35:06.000Z"
+  }
+]

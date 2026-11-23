@@ -1,0 +1,106 @@
+[
+  {
+    "creation_time": "2026-11-23T03:33:51.182Z",
+    "current_user_role_ids": null,
+    "cve_allowlist": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "id": 3,
+      "items": [],
+      "project_id": 3,
+      "update_time": "0001-01-01T00:00:00.000Z"
+    },
+    "metadata": {
+      "auto_scan": "true",
+      "public": "false"
+    },
+    "name": "apps",
+    "owner_id": 1,
+    "owner_name": "admin",
+    "project_id": 3,
+    "repo_count": 2,
+    "update_time": "2026-11-23T03:33:51.182Z"
+  },
+  {
+    "creation_time": "2026-11-23T03:33:35.911Z",
+    "current_user_role_ids": null,
+    "cve_allowlist": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "id": 1,
+      "items": [],
+      "project_id": 1,
+      "update_time": "0001-01-01T00:00:00.000Z"
+    },
+    "metadata": {
+      "auto_scan": "true",
+      "public": "true"
+    },
+    "name": "library",
+    "owner_id": 1,
+    "owner_name": "admin",
+    "project_id": 1,
+    "repo_count": 1,
+    "update_time": "2026-11-23T03:33:35.911Z"
+  },
+  {
+    "creation_time": "2026-11-23T03:34:13.841Z",
+    "current_user_role_ids": null,
+    "cve_allowlist": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "id": 5,
+      "items": [],
+      "project_id": 5,
+      "update_time": "0001-01-01T00:00:00.000Z"
+    },
+    "metadata": {
+      "public": "true"
+    },
+    "name": "mirror",
+    "owner_id": 1,
+    "owner_name": "admin",
+    "project_id": 5,
+    "repo_count": 1,
+    "update_time": "2026-11-23T03:34:13.841Z"
+  },
+  {
+    "creation_time": "2026-11-23T03:33:50.949Z",
+    "current_user_role_ids": null,
+    "cve_allowlist": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "id": 2,
+      "items": [],
+      "project_id": 2,
+      "update_time": "0001-01-01T00:00:00.000Z"
+    },
+    "metadata": {
+      "auto_scan": "true",
+      "public": "false"
+    },
+    "name": "platform",
+    "owner_id": 1,
+    "owner_name": "admin",
+    "project_id": 2,
+    "repo_count": 1,
+    "update_time": "2026-11-23T03:33:50.949Z"
+  },
+  {
+    "creation_time": "2026-11-23T03:33:51.409Z",
+    "current_user_role_ids": null,
+    "cve_allowlist": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "id": 4,
+      "items": [],
+      "project_id": 4,
+      "update_time": "0001-01-01T00:00:00.000Z"
+    },
+    "metadata": {
+      "auto_scan": "true",
+      "public": "true"
+    },
+    "name": "sandbox",
+    "owner_id": 1,
+    "owner_name": "admin",
+    "project_id": 4,
+    "repo_count": 0,
+    "update_time": "2026-11-23T03:33:51.409Z"
+  }
+]

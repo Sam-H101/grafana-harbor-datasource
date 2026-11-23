@@ -1,0 +1,81 @@
+{
+  "critical_cnt": 10,
+  "dangerous_artifacts": [
+    {
+      "critical_cnt": 9,
+      "digest": "sha256:480395b7be07df06368c93469df41343c1e6285f5b37d387b5a17f2e8708a2a3",
+      "high_cnt": 52,
+      "medium_cnt": 29,
+      "project_id": 3,
+      "repository_name": "apps/nginx"
+    },
+    {
+      "critical_cnt": 1,
+      "digest": "sha256:e515aad2ed234a5072c4d2ef86a1cb77d5bfe4b11aa865d9214875734c4eeb3c",
+      "high_cnt": 0,
+      "medium_cnt": 0,
+      "project_id": 2,
+      "repository_name": "platform/alpine"
+    },
+    {
+      "critical_cnt": 0,
+      "digest": "sha256:c64c687cbea9300178b30c95835354e34c4e4febc4badfe27102879de0483b5e",
+      "high_cnt": 2,
+      "medium_cnt": 0,
+      "project_id": 2,
+      "repository_name": "platform/alpine"
+    },
+    {
+      "critical_cnt": 0,
+      "digest": "sha256:e4ee3e03ce8f75471f40937a7c6b2b0e500390b6812fcdf5cb32c01295ded446",
+      "high_cnt": 0,
+      "medium_cnt": 1,
+      "project_id": 3,
+      "repository_name": "apps/redis"
+    }
+  ],
+  "dangerous_cves": [
+    {
+      "cve_id": "CVE-2022-37434",
+      "cvss_score_v3": 9.8,
+      "package": "zlib",
+      "severity": "Critical",
+      "version": "1.2.11-r3"
+    },
+    {
+      "cve_id": "CVE-2021-3711",
+      "cvss_score_v3": 9.8,
+      "package": "libssl1.1",
+      "severity": "Critical",
+      "version": "1.1.1k-r0"
+    },
+    {
+      "cve_id": "CVE-2022-32207",
+      "cvss_score_v3": 9.8,
+      "package": "libcurl",
+      "severity": "Critical",
+      "version": "7.76.1-r0"
+    },
+    {
+      "cve_id": "CVE-2021-3711",
+      "cvss_score_v3": 9.8,
+      "package": "libcrypto1.1",
+      "severity": "Critical",
+      "version": "1.1.1k-r0"
+    },
+    {
+      "cve_id": "CVE-2022-27404",
+      "cvss_score_v3": 9.8,
+      "package": "freetype",
+      "severity": "Critical",
+      "version": "2.10.4-r1"
+    }
+  ],
+  "fixable_cnt": 100,
+  "high_cnt": 54,
+  "low_cnt": 6,
+  "medium_cnt": 30,
+  "scanned_cnt": 6,
+  "total_artifact": 6,
+  "total_vuls": 100
+}

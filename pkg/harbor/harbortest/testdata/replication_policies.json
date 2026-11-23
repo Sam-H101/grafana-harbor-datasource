@@ -1,0 +1,54 @@
+[
+  {
+    "copy_by_chunk": false,
+    "creation_time": "2026-11-23T03:34:12.160Z",
+    "description": "Copies library/** into the project mirror (dev stack)",
+    "dest_namespace": "mirror",
+    "dest_namespace_replace_count": 1,
+    "dest_registry": {
+      "creation_time": "2026-11-23T03:34:11.474Z",
+      "credential": {
+        "access_key": "admin",
+        "access_secret": "*****",
+        "type": "basic"
+      },
+      "id": 1,
+      "insecure": true,
+      "name": "self",
+      "status": "healthy",
+      "type": "harbor",
+      "update_time": "2026-11-23T03:34:11.474Z",
+      "url": "http://proxy:8080"
+    },
+    "enabled": true,
+    "filters": [
+      {
+        "type": "name",
+        "value": "library/**"
+      }
+    ],
+    "id": 1,
+    "name": "mirror-library",
+    "override": true,
+    "single_active_replication": false,
+    "speed": 0,
+    "src_registry": {
+      "creation_time": "0001-01-01T00:00:00.000Z",
+      "credential": {
+        "access_secret": "*****",
+        "type": "secret"
+      },
+      "id": 0,
+      "insecure": true,
+      "name": "Local",
+      "status": "healthy",
+      "type": "harbor",
+      "update_time": "0001-01-01T00:00:00.000Z",
+      "url": "http://core:8080"
+    },
+    "trigger": {
+      "type": "manual"
+    },
+    "update_time": "2026-11-23T03:34:12.160Z"
+  }
+]

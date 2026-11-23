@@ -1,0 +1,60 @@
+name: Integration tests
+
+# Backend tests against a live Harbor with seeded projects, images, scans and
+# robot accounts, started the same way as the dev stack (devenv/harbor).
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  # Allows a run to be started by hand from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    name: Go integration tests against Harbor ${{ matrix.harbor }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # The Harbor version the plugin is developed against.
+        harbor:
+          - v2.15.5
+    env:
+      HARBOR_VERSION: ${{ matrix.harbor }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Setup Go environment
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Start Harbor and seed it
+        run: |
+          devenv/harbor/harbor.sh up
+          devenv/harbor/harbor.sh secrets "$RUNNER_TEMP/harbor-seed"
+
+      - name: Run integration tests
+        env:
+          HARBOR_URL: http://localhost:8085
+          HARBOR_SEED_DIR: ${{ runner.temp }}/harbor-seed
+        run: go test -tags integration -race -count=1 -v ./tests/integration/...
+
+      - name: Harbor logs
+        if: failure()
+        run: devenv/harbor/harbor.sh logs --tail 200 core jobservice trivy-adapter
+
+      - name: Stop Harbor
+        if: always()
+        run: devenv/harbor/harbor.sh down

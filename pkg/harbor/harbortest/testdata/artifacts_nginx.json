@@ -1,0 +1,94 @@
+[
+  {
+    "accessories": null,
+    "addition_links": {
+      "build_history": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/apps/repositories/nginx/artifacts/sha256:480395b7be07df06368c93469df41343c1e6285f5b37d387b5a17f2e8708a2a3/additions/build_history"
+      },
+      "sboms": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/apps/repositories/nginx/artifacts//additions/sbom"
+      },
+      "vulnerabilities": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/apps/repositories/nginx/artifacts/sha256:480395b7be07df06368c93469df41343c1e6285f5b37d387b5a17f2e8708a2a3/additions/vulnerabilities"
+      }
+    },
+    "artifact_type": "application/vnd.docker.container.image.v1+json",
+    "digest": "sha256:480395b7be07df06368c93469df41343c1e6285f5b37d387b5a17f2e8708a2a3",
+    "extra_attrs": {
+      "architecture": "amd64",
+      "author": "NGINX Docker Maintainers <docker-maint@nginx.com>",
+      "config": {
+        "Cmd": ["nginx", "-g", "daemon off;"],
+        "Entrypoint": ["/docker-entrypoint.sh"],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "NGINX_VERSION=1.19.10",
+          "NJS_VERSION=0.5.3",
+          "PKG_RELEASE=1"
+        ],
+        "ExposedPorts": {
+          "80/tcp": {}
+        },
+        "Labels": {
+          "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+        },
+        "StopSignal": "SIGQUIT"
+      },
+      "created": "2021-04-14T23:14:38.270015592Z",
+      "os": "linux"
+    },
+    "icon": "sha256:0048162a053eef4d4ce3fe7518615bef084403614f8bca43b40ae2e762e11e06",
+    "id": 4,
+    "labels": null,
+    "manifest_media_type": "application/vnd.docker.distribution.manifest.v2+json",
+    "media_type": "application/vnd.docker.container.image.v1+json",
+    "project_id": 3,
+    "pull_time": "2026-11-23T03:34:07.987Z",
+    "push_time": "2026-11-23T03:34:01.598Z",
+    "references": null,
+    "repository_id": 3,
+    "repository_name": "apps/nginx",
+    "scan_overview": {
+      "application/vnd.security.vulnerability.report; version=1.1": {
+        "complete_percent": 100,
+        "duration": 10,
+        "end_time": "2026-11-23T03:34:11.000Z",
+        "report_id": "015f54c7-91f1-4c75-aaf1-37030bf378f2",
+        "scan_status": "Success",
+        "scanner": {
+          "name": "Trivy",
+          "vendor": "Aqua Security",
+          "version": "v0.76.2"
+        },
+        "severity": "Critical",
+        "start_time": "2026-11-23T03:34:01.000Z",
+        "summary": {
+          "fixable": 96,
+          "summary": {
+            "Critical": 9,
+            "High": 52,
+            "Low": 6,
+            "Medium": 29
+          },
+          "total": 96
+        }
+      }
+    },
+    "size": 9826852,
+    "tags": [
+      {
+        "artifact_id": 4,
+        "id": 4,
+        "immutable": false,
+        "name": "1.19-alpine",
+        "pull_time": "2026-11-23T03:34:07.987Z",
+        "push_time": "2026-11-23T03:34:01.611Z",
+        "repository_id": 3
+      }
+    ],
+    "type": "IMAGE"
+  }
+]

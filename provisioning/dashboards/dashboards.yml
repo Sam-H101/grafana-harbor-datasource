@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: Harbor
+    folder: Harbor
+    type: file
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards

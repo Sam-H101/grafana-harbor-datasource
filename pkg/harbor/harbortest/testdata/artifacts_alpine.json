@@ -1,0 +1,173 @@
+[
+  {
+    "accessories": null,
+    "addition_links": {
+      "build_history": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts/sha256:c64c687cbea9300178b30c95835354e34c4e4febc4badfe27102879de0483b5e/additions/build_history"
+      },
+      "sboms": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts//additions/sbom"
+      },
+      "vulnerabilities": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts/sha256:c64c687cbea9300178b30c95835354e34c4e4febc4badfe27102879de0483b5e/additions/vulnerabilities"
+      }
+    },
+    "annotations": {
+      "com.docker.official-images.bashbrew.arch": "amd64",
+      "org.opencontainers.image.base.name": "scratch",
+      "org.opencontainers.image.created": "2026-04-16T23:53:23Z",
+      "org.opencontainers.image.revision": "0db70ae354ee747109ce0b9a0cfbcd3c907bc822",
+      "org.opencontainers.image.source": "https://github.com/alpinelinux/docker-alpine.git#0db70ae354ee747109ce0b9a0cfbcd3c907bc822:x86_64",
+      "org.opencontainers.image.url": "https://hub.docker.com/_/alpine",
+      "org.opencontainers.image.version": "3.20.10"
+    },
+    "artifact_type": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:c64c687cbea9300178b30c95835354e34c4e4febc4badfe27102879de0483b5e",
+    "extra_attrs": {
+      "architecture": "amd64",
+      "author": "",
+      "config": {
+        "Cmd": ["/bin/sh"],
+        "Env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],
+        "WorkingDir": "/"
+      },
+      "created": "2026-04-16T23:53:26.803599608Z",
+      "os": "linux"
+    },
+    "icon": "sha256:0048162a053eef4d4ce3fe7518615bef084403614f8bca43b40ae2e762e11e06",
+    "id": 3,
+    "labels": null,
+    "manifest_media_type": "application/vnd.oci.image.manifest.v1+json",
+    "media_type": "application/vnd.oci.image.config.v1+json",
+    "project_id": 2,
+    "pull_time": "2026-11-23T03:34:08.875Z",
+    "push_time": "2026-11-23T03:33:58.001Z",
+    "references": null,
+    "repository_id": 2,
+    "repository_name": "platform/alpine",
+    "scan_overview": {
+      "application/vnd.security.vulnerability.report; version=1.1": {
+        "complete_percent": 100,
+        "duration": 8,
+        "end_time": "2026-11-23T03:34:06.000Z",
+        "report_id": "c7f19a5b-b8cc-4b16-9c53-f2e7b4ffa0ba",
+        "scan_status": "Success",
+        "scanner": {
+          "name": "Trivy",
+          "vendor": "Aqua Security",
+          "version": "v0.76.2"
+        },
+        "severity": "High",
+        "start_time": "2026-11-23T03:33:58.000Z",
+        "summary": {
+          "fixable": 2,
+          "summary": {
+            "High": 2
+          },
+          "total": 2
+        }
+      }
+    },
+    "size": 3631956,
+    "tags": [
+      {
+        "artifact_id": 3,
+        "id": 6,
+        "immutable": false,
+        "name": "stable",
+        "pull_time": "0001-01-01T00:00:00.000Z",
+        "push_time": "2026-11-23T03:34:10.335Z",
+        "repository_id": 2
+      },
+      {
+        "artifact_id": 3,
+        "id": 3,
+        "immutable": false,
+        "name": "3.20",
+        "pull_time": "2026-11-23T03:34:08.875Z",
+        "push_time": "2026-11-23T03:33:58.017Z",
+        "repository_id": 2
+      }
+    ],
+    "type": "IMAGE"
+  },
+  {
+    "accessories": null,
+    "addition_links": {
+      "build_history": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts/sha256:e515aad2ed234a5072c4d2ef86a1cb77d5bfe4b11aa865d9214875734c4eeb3c/additions/build_history"
+      },
+      "sboms": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts//additions/sbom"
+      },
+      "vulnerabilities": {
+        "absolute": false,
+        "href": "/api/v2.0/projects/platform/repositories/alpine/artifacts/sha256:e515aad2ed234a5072c4d2ef86a1cb77d5bfe4b11aa865d9214875734c4eeb3c/additions/vulnerabilities"
+      }
+    },
+    "artifact_type": "application/vnd.docker.container.image.v1+json",
+    "digest": "sha256:e515aad2ed234a5072c4d2ef86a1cb77d5bfe4b11aa865d9214875734c4eeb3c",
+    "extra_attrs": {
+      "architecture": "amd64",
+      "author": "",
+      "config": {
+        "Cmd": ["/bin/sh"],
+        "Env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"]
+      },
+      "created": "2021-04-14T19:20:05.338397761Z",
+      "os": "linux"
+    },
+    "icon": "sha256:0048162a053eef4d4ce3fe7518615bef084403614f8bca43b40ae2e762e11e06",
+    "id": 2,
+    "labels": null,
+    "manifest_media_type": "application/vnd.docker.distribution.manifest.v2+json",
+    "media_type": "application/vnd.docker.container.image.v1+json",
+    "project_id": 2,
+    "pull_time": "2026-11-23T03:34:05.667Z",
+    "push_time": "2026-11-23T03:33:54.981Z",
+    "references": null,
+    "repository_id": 2,
+    "repository_name": "platform/alpine",
+    "scan_overview": {
+      "application/vnd.security.vulnerability.report; version=1.1": {
+        "complete_percent": 100,
+        "duration": 11,
+        "end_time": "2026-11-23T03:34:06.000Z",
+        "report_id": "0e9a4ff6-823e-46cb-aed9-e2f2c09b3fdf",
+        "scan_status": "Success",
+        "scanner": {
+          "name": "Trivy",
+          "vendor": "Aqua Security",
+          "version": "v0.76.2"
+        },
+        "severity": "Critical",
+        "start_time": "2026-11-23T03:33:55.000Z",
+        "summary": {
+          "fixable": 1,
+          "summary": {
+            "Critical": 1
+          },
+          "total": 1
+        }
+      }
+    },
+    "size": 2800338,
+    "tags": [
+      {
+        "artifact_id": 2,
+        "id": 2,
+        "immutable": false,
+        "name": "3.10",
+        "pull_time": "0001-01-01T00:00:00.000Z",
+        "push_time": "2026-11-23T03:33:54.994Z",
+        "repository_id": 2
+      }
+    ],
+    "type": "IMAGE"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "artifact_count": 1,
+    "creation_time": "2026-11-23T03:34:16.052Z",
+    "id": 5,
+    "name": "mirror/busybox",
+    "project_id": 5,
+    "pull_count": 0,
+    "update_time": "2026-11-23T03:34:16.045Z"
+  },
+  {
+    "artifact_count": 1,
+    "creation_time": "2026-11-23T03:34:04.694Z",
+    "id": 4,
+    "name": "apps/redis",
+    "project_id": 3,
+    "pull_count": 2,
+    "update_time": "2026-11-23T03:34:14.377Z"
+  },
+  {
+    "artifact_count": 1,
+    "creation_time": "2026-11-23T03:34:01.585Z",
+    "id": 3,
+    "name": "apps/nginx",
+    "project_id": 3,
+    "pull_count": 5,
+    "update_time": "2026-11-23T03:34:14.374Z"
+  },
+  {
+    "artifact_count": 2,
+    "creation_time": "2026-11-23T03:33:54.970Z",
+    "id": 2,
+    "name": "platform/alpine",
+    "project_id": 2,
+    "pull_count": 5,
+    "update_time": "2026-11-23T03:34:14.369Z"
+  },
+  {
+    "artifact_count": 1,
+    "creation_time": "2026-11-23T03:33:53.216Z",
+    "id": 1,
+    "name": "library/busybox",
+    "project_id": 1,
+    "pull_count": 2,
+    "update_time": "2026-11-23T03:34:14.366Z"
+  }
+]

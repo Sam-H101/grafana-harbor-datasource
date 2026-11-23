@@ -1,0 +1,113 @@
+# Dev stack: Grafana with the plugin, next to a throwaway Harbor.
+#
+# Harbor is not in this file: it has a dozen services of its own, which
+# Harbor's "prepare" image generates. Start and seed it first:
+#
+#   devenv/harbor/harbor.sh up
+#   docker compose up -d --build --wait
+#
+# The toolbox (profile "tools") runs builds and tests: see devenv/run.sh.
+services:
+  grafana:
+    extends:
+      file: .config/docker-compose-base.yaml
+      service: grafana
+    build:
+      args:
+        # The version the plugin was tested with; CI overrides it.
+        grafana_version: ${GRAFANA_VERSION:-13.3.1}
+    # Local by default: the dev image grants anonymous Admin. To expose the
+    # stack, set BIND_ADDRESS, ANONYMOUS_AUTH_ENABLED=false and
+    # GRAFANA_ADMIN_PASSWORD (see devenv/README.md).
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      # Stands in for Grafana Cloud's Private data source connect: data
+      # sources with "secure socks proxy" on send their requests through the
+      # `socks` service. allow_insecure skips the mutual TLS that the real
+      # service uses, which a local SOCKS proxy cannot offer.
+      GF_SECURE_SOCKS_DATASOURCE_PROXY_ENABLED: 'true'
+      GF_SECURE_SOCKS_DATASOURCE_PROXY_PROXY_ADDRESS: socks:1080
+      GF_SECURE_SOCKS_DATASOURCE_PROXY_ALLOW_INSECURE: 'true'
+      GF_SECURE_SOCKS_DATASOURCE_PROXY_SHOW_UI: 'true'
+    ports: !override
+      - ${BIND_ADDRESS:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000/tcp
+    volumes:
+      # The robot accounts' secrets the seed created, read by the provisioned
+      # data sources.
+      - harbor-seed:/run/harbor:ro
+    networks:
+      - default
+      # Harbor's own network: Harbor's entry point is http://proxy:8080.
+      - harbor
+    depends_on:
+      - socks
+      - relay
+
+  # Harbor under a second name, harbor-private, that exists only on a network
+  # Grafana is not on. It is reachable only through the socks proxy: that is
+  # how the tests prove that a request went through Private data source
+  # connect. (The service is not called harbor-private itself, or the name
+  # would also resolve on Harbor's network, which Grafana is on.)
+  relay:
+    image: alpine/socat:latest
+    command: ['tcp-listen:8080,fork,reuseaddr', 'tcp-connect:proxy:8080']
+    networks:
+      harbor:
+      private:
+        aliases:
+          - harbor-private
+
+  # A plain SOCKS5 proxy on both networks (see the grafana service).
+  socks:
+    image: serjs/go-socks5-proxy:latest
+    environment:
+      REQUIRE_AUTH: 'false'
+    networks:
+      - default
+      - private
+
+  toolbox:
+    profiles: ['tools']
+    build:
+      context: devenv/toolbox
+      args:
+        UID: ${TOOLBOX_UID:-1000}
+        GID: ${TOOLBOX_GID:-1000}
+    image: harbor-datasource-toolbox:local
+    init: true
+    working_dir: /workspace
+    environment:
+      GRAFANA_URL: http://grafana:3000
+      HARBOR_URL: http://proxy:8080
+      HARBOR_SEED_DIR: /run/harbor
+      CI: ${CI:-}
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+      - gomod:/go/pkg/mod
+      - gobuild:/home/dev/.cache/go-build
+      - npmcache:/home/dev/.npm
+      - playwright:/ms-playwright
+      - harbor-seed:/run/harbor:ro
+    networks:
+      - default
+      - harbor
+
+networks:
+  private:
+    internal: true
+  # Created by Harbor's compose project (devenv/harbor/harbor.sh up).
+  harbor:
+    external: true
+    name: harbor_harbor
+
+volumes:
+  # Created and filled by devenv/harbor/harbor.sh.
+  harbor-seed:
+    external: true
+    name: grafana-harbor-seed
+  node_modules:
+  gomod:
+  gobuild:
+  npmcache:
+  playwright:

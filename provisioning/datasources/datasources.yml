@@ -1,0 +1,46 @@
+apiVersion: 1
+
+# Data sources for the dev stack (docker-compose.yaml). The robot accounts and
+# their secrets are created by devenv/harbor/seed.py and read from its volume.
+#
+# A robot account's name has a dollar sign. Grafana expands $name in this file
+# as an environment variable, so the dollar sign is written twice.
+datasources:
+  - name: Harbor
+    type: smartquinoa1504-harbor-datasource
+    uid: harbor-dev
+    access: proxy
+    url: http://proxy:8080
+    isDefault: true
+    editable: true
+    jsonData:
+      username: robot$$grafana
+    secureJsonData:
+      password: $__file{/run/harbor/secret}
+
+  # The same server, reachable only through the socks proxy that stands in
+  # for Grafana Cloud's Private data source connect.
+  - name: Harbor (private network)
+    type: smartquinoa1504-harbor-datasource
+    uid: harbor-pdc
+    access: proxy
+    url: http://harbor-private:8080
+    editable: true
+    jsonData:
+      username: robot$$grafana
+      enableSecureSocksProxy: true
+    secureJsonData:
+      password: $__file{/run/harbor/secret}
+
+  # A robot account that may only list projects, repositories and artifacts:
+  # quotas, vulnerabilities, replications and the rest are refused.
+  - name: Harbor (limited account)
+    type: smartquinoa1504-harbor-datasource
+    uid: harbor-limited
+    access: proxy
+    url: http://proxy:8080
+    editable: true
+    jsonData:
+      username: robot$$grafana-limited
+    secureJsonData:
+      password: $__file{/run/harbor/limited-secret}

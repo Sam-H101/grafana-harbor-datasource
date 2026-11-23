@@ -1,0 +1,16 @@
+[
+  {
+    "end_time": "2026-11-23T03:34:16.000Z",
+    "failed": 0,
+    "id": 8,
+    "in_progress": 0,
+    "policy_id": 1,
+    "start_time": "2026-11-23T03:34:12.832Z",
+    "status": "Succeed",
+    "status_text": "",
+    "stopped": 0,
+    "succeed": 1,
+    "total": 1,
+    "trigger": "manual"
+  }
+]
