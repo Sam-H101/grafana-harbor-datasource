@@ -19,9 +19,10 @@ HARBOR_VERSION="${HARBOR_VERSION:-v2.15.5}"
 HARBOR_HOME="${HARBOR_HOME:-$HOME/.cache/grafana-harbor-datasource/harbor}"
 HARBOR_PORT="${HARBOR_PORT:-8085}"
 HARBOR_ADMIN_PASSWORD="${HARBOR_ADMIN_PASSWORD:-Harbor-dev-0nly}"
-# Where the sample images are copied from. Docker's official images, from a
-# mirror that does not limit anonymous pulls.
-SOURCE_REGISTRY="${SOURCE_REGISTRY:-public.ecr.aws/docker/library}"
+# Where the sample images are copied from: Docker's official images, from
+# mirrors first. Each limits anonymous pulls in its own way, and shared CI
+# machines run into those limits, so the next one is tried when one refuses.
+SOURCE_REGISTRIES="${SOURCE_REGISTRIES:-public.ecr.aws/docker/library mirror.gcr.io/library docker.io/library}"
 SKOPEO_IMAGE="${SKOPEO_IMAGE:-quay.io/skopeo/stable:latest}"
 SEED_IMAGE="${SEED_IMAGE:-python:3.13-alpine}"
 # The Docker network Harbor's compose project creates, and the volume the
@@ -56,10 +57,17 @@ skopeo() {
 
 # push <source image:tag> <project/repository:tag>
 push() {
-  echo "Copying $1 to $2"
-  skopeo copy --quiet --retry-times 3 \
-    --dest-tls-verify=false --dest-creds "admin:$HARBOR_ADMIN_PASSWORD" \
-    "docker://$SOURCE_REGISTRY/$1" "docker://proxy:8080/$2"
+  local source
+  for source in $SOURCE_REGISTRIES; do
+    echo "Copying $source/$1 to $2"
+    if skopeo copy --quiet --retry-times 2 \
+      --dest-tls-verify=false --dest-creds "admin:$HARBOR_ADMIN_PASSWORD" \
+      "docker://$source/$1" "docker://proxy:8080/$2"; then
+      return 0
+    fi
+  done
+  echo "Could not copy $1 from any of: $SOURCE_REGISTRIES" >&2
+  return 1
 }
 
 # pull <project/repository:tag> <times>: so that pull counts are not all zero

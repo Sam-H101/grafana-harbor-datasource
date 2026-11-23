@@ -59,7 +59,7 @@ images and Trivy's vulnerability database from the internet.
 | `HARBOR_PORT`           | `8085`                                      | The port Harbor is published on, for a browser |
 | `HARBOR_ADMIN_PASSWORD` | `Harbor-dev-0nly`                           | The password of `admin`                        |
 | `HARBOR_HOME`           | `~/.cache/grafana-harbor-datasource/harbor` | Generated files and data                       |
-| `SOURCE_REGISTRY`       | `public.ecr.aws/docker/library`             | Where the sample images come from              |
+| `SOURCE_REGISTRIES`     | ECR Public, then two other mirrors          | Where the sample images come from, in order    |
 
 Harbor is at http://localhost:8085 (admin / `Harbor-dev-0nly`). Inside Docker
 it is `http://proxy:8080` on the network `harbor_harbor`.
